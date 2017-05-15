@@ -22,14 +22,14 @@ asdf
 -------------
 
 # This also will become an heading
-##sub
+## sub
 
-###susub
+### susub
 
 		asdfasdf
 
-*list
-*list 
+* list
+* list 
 
 *italic*
 **bold**
