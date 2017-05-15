@@ -20,3 +20,17 @@ BLABLA
 
 asdf
 -------------
+
+# This also will become an heading
+##sub
+
+###susub
+
+		asdfasdf
+
+*list
+*list 
+
+*italic*
+**bold**
+***wtf?***
