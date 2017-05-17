@@ -1,2 +1,0 @@
-# MONGODB study material 
-
