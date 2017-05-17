@@ -1,0 +1,250 @@
+$mainColor: #25354f;
+$Col2: #c31200;
+$Col3: red;
+$Bg1: #FFF;
+$Bg2: #d1cfde;
+
+
+/*
+---------------------------------
+    RESPONSIVE LAYOUT
+---------------------------------
+*/
+$S:     480px;   
+$M:     768px;     
+$L:     1170px;         
+// layout - media queries
+@mixin MQ($screenSize) {
+  @if $screenSize == S {
+   @media screen and (min-width: $S) { @content; } 
+  }
+  @else if $screenSize == M {
+   @media screen and (min-width: $M) { @content; } 
+  }
+  @else if $screenSize == L {
+   @media screen and (min-width: $L) { @content; } 
+  }
+}
+
+
+
+
+/*
+---------------------------------
+		FLEX GRID v1.0
+---------------------------------
+*/
+.flex-row {
+  display: flex; 
+
+}
+.col {flex:1}
+.col3 {flex:3}
+.col7 {flex:7}
+/* !!! */
+@media (max-width: 700px) { 
+  .flex-row {
+    display: block;
+    .col{
+      flex: 1  /* ??? toto treba? */
+    }
+  }
+}
+
+
+/*
+---------------------------------
+		New 
+---------------------------------
+*/
+
+* { margin: 0px; }
+
+
+body, html {
+	background-color: $Bg2;
+	font-family: 'Play', sans-serif;
+	color: #333;
+	letter-spacing: 0.1em;
+}
+
+
+body, html {
+    height: 100%;
+}
+
+
+nav{
+	background-color: $Col2;
+	width: 100%;
+	height: 20px;
+}
+
+header {
+	.logo{
+		content:url("../media/logo.png"); 
+		height: 200px;
+	}
+}
+
+
+/*
+---------------------------------
+		New 
+---------------------------------
+*/
+
+.text{
+	padding: 3%;
+	
+	text-align: justify;
+	p {	
+  		margin: 20px;
+		position: relative;
+		text-indent: 50px;
+		}
+	
+	ul {
+		padding: 10px;
+		text-align: left;
+		display: table;   /* aha! */
+		li {
+			list-style-type: none;
+			padding: 0px;
+			display: table-row;  /* aha! */
+			&:before {
+			display: table-cell; /* aha! */
+			content: "✓";
+  			padding-right: 10px;
+  			color: #999;
+  			font-size:0.7em;		
+			}
+		}
+
+	}
+	.left {
+		text-align: left;
+		p {
+			padding-top: 30px;
+			font-weight: 700;
+		}
+	}
+}
+
+h3{
+	margin: 0px;
+}
+
+
+/*
+---------------------------------
+		New 
+---------------------------------
+*/
+#parallax-A {
+	background: url("../media/bckg1.jpg");
+	min-height: 70%;
+	padding-bottom: 20px;
+}
+
+#parallax-B {
+	background: url("../media/bckg2.jpg");
+	min-height: 70%;
+	padding-bottom: 20px;
+}
+
+#parallax-C {
+	background: url("../media/bckg3.jpg");
+	min-height: 70%;
+	padding-bottom: 20px;
+}
+
+
+
+/*
+---------------------------------
+		New 
+---------------------------------
+*/
+/*
+---------------------------------
+		GOOGLE MAP
+---------------------------------
+*/
+
+
+// layout - breakpoints
+//$S:     320px;   
+//$M:     768px;     
+//$L:     1170px;         
+
+// layout - media queries
+@mixin MQ($canvas) {
+  @if $canvas == S {
+   @media only screen and (min-width: $S) { @content; } 
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $M) { @content; } 
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $L) { @content; } 
+  }
+}
+
+#google-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    @include MQ(M) {
+    	height: 300px;
+    }
+
+    @include MQ(L) {
+    	height: 600px;
+    }
+}
+
+#cd-google-map {
+	border: solid 3px $mainColor;
+  	position: relative;
+	address {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		background-color: rgba($Col2, .9);
+		color: $Col3;
+		font-size: 13px;
+		@include MQ(M) {
+			font-size:15px;
+			text-align: center;
+		}
+	}
+}
+
+#cd-zoom-in, #cd-zoom-out {
+	height: 32px;
+	width: 32px;
+	cursor: pointer;
+	margin-left: 10px;
+	background-color: rgba($Col2, .9);
+	background-repeat: no-repeat;
+	background-size: 32px 64px;
+	background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-controller.svg');
+	/* !!! background image */	
+	@include MQ(M) {
+		margin-left: 50px;
+	}
+}
+#cd-zoom-in {
+	background-position: 50% 0;
+	margin-top: 10px;
+	margin-bottom: 1px;
+
+	@include MQ(M) {
+		margin-top: 50px;
+	}
+}
+#cd-zoom-out {
+	background-position: 50% -32px;
+}
+
