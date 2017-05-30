@@ -1,0 +1,139 @@
+/*
+---------------------------------
+	HEADER (VIDEO-OVERLAY NAV) 
+---------------------------------
+*/
+
+
+header {
+	position: relative;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	margin-bottom: 10px;
+	box-shadow: 0px 5px 20px 0px grey;
+	overflow: hidden;	
+	
+	.overlay-content {
+		position: relative;
+		z-index: 10000;
+		opacity: .8;
+		text-align: center;	
+		@media screen and (max-width:540px) {
+			#blankspace {
+				height: 80px;
+			}
+		}
+	}
+	.logo{ 	
+    	img {    		
+    		margin-top:10%;
+    		margin-left: -10%;		
+    		/* Zaujímavé riešenie responz. image */
+    		max-height: 50vh; 
+    		max-width: 80%;
+    	}
+
+    }
+    .telefon {
+    	margin-top: -40px;
+    	margin-bottom: 30px;
+    	a {
+    		font-size: 26px;
+			font-family: "Montserrat";
+			text-decoration: none;
+			color: black
+		}	
+		img{ /* TELEFONIK (mohol by byť ako before) */
+			position: relative;
+			top: 8px;
+			height: 40px;
+			padding-right: 10px;
+		}
+
+    }	
+
+
+	/* prirodzene tu nasleduje stylovanie "SCROLL buttonu"  */
+  	.overlay-pattern{
+  	  position: absolute; 
+  	  /* musí byť absolute, alebo relative. */
+  	  background: transparent;
+  	  background: url("../media/overlay-zz-w.png") left top repeat;
+  	  opacity: .5;
+  	  z-index: 1001; 
+  	  min-width: 100%;
+  	  min-height: 100%; 
+  	  visibility: hidden;
+  	}
+  	video {
+  	  position: absolute;
+  	  left: 50%;
+  	  top: 50%;
+  	  transform: translate(-50%, -50%);
+  	  min-width: 100%;
+  	  min-height: 100%;
+  	  opacity: .73
+  	}
+    .vid {
+  	  position: absolute;
+  	  left: 50%;
+  	  top: 50%;
+  	  transform: translate(-50%, -50%);
+  	  min-width: 100%;
+  	  min-height: 100%;
+  	  opacity: .73
+  	}
+}
+
+
+/*
+---------------------------------
+	SICKY 
+---------------------------------
+*/
+.top-border{
+		height: 3px;
+		width: 100%;
+		background-color: black;
+		position: fixed;
+		z-index: 100000;
+}
+.sticky {
+	display:none; /* je riadeny JS po scrollovani */
+	position: fixed;
+	top: 0;
+	z-index: 100001;
+	height: 60px;
+	width: 100%;
+	background-color: $mainColor;
+	box-shadow: -1px 0px 8px 3px rgba(0,0,0,0.75);
+	border-bottom: solid 4px black;
+	.logo-sticky {
+		margin-left: 20px;
+		height: 60px;
+		img {
+			height: 100%;
+			position: absolute;
+		}
+	}
+
+	.menu-large {
+		visibility: hidden;
+		@include MQ(M) {
+			
+		}
+		float: right;
+		margin-top: -70px;
+		p {
+		display: inline-block;
+		padding: 30px;
+		font-weight: 700;
+		font-family: "Montserrat";
+		text-transform: uppercase;
+		}
+	}	
+	.menu-mobile {
+		visibility: hidden;
+	}
+}

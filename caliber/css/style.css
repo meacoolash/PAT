@@ -1,0 +1,868 @@
+@charset "UTF-8";
+/*
+---------------------------------
+		
+---------------------------------
+*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,700&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:300&subset=latin-ext");
+/*
+---------------------------------
+		IMPORT
+---------------------------------
+*/
+/*
+---------------------------------
+		HTML & BODY 
+---------------------------------
+*/
+* {
+  margin: 0px;
+  font-family: "Titillium Web", Arial, sans-serif; }
+
+body, html {
+  background-color: white; }
+
+body, html {
+  height: 100%; }
+
+/*
+---------------------------------
+    RESPONSIVE LAYOUT
+---------------------------------
+*/
+/*
+.test {
+  @include MQ(S) {
+    background-color: red;
+  }
+  @include MQ(M) {
+    background-color: green;    
+  }
+  @include MQ(L) {
+    background-color: yellow;   
+  }
+}
+*/
+/*
+---------------------------------
+		FLEX GRID v1.0
+---------------------------------
+*/
+.flex-row {
+  display: flex; }
+
+.col {
+  flex: 1; }
+
+.col3 {
+  flex: 3; }
+
+.col7 {
+  flex: 7; }
+
+/* !!! */
+@media (max-width: 700px) {
+  .flex-row {
+    display: block; }
+    .flex-row .col {
+      flex: 1; } }
+/*
+---------------------------------
+	HEADER (VIDEO-OVERLAY NAV) 
+---------------------------------
+*/
+header {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 10px;
+  box-shadow: 0px 5px 20px 0px grey;
+  overflow: hidden;
+  /* prirodzene tu nasleduje stylovanie "SCROLL buttonu"  */ }
+  header .overlay-content {
+    position: relative;
+    z-index: 10000;
+    opacity: .8;
+    text-align: center; }
+    @media screen and (max-width: 540px) {
+      header .overlay-content #blankspace {
+        height: 80px; } }
+  header .logo img {
+    margin-top: 10%;
+    margin-left: -10%;
+    /* Zaujímavé riešenie responz. image */
+    max-height: 50vh;
+    max-width: 80%; }
+  header .telefon {
+    margin-top: -40px;
+    margin-bottom: 30px; }
+    header .telefon a {
+      font-size: 26px;
+      font-family: "Montserrat";
+      text-decoration: none;
+      color: black; }
+    header .telefon img {
+      /* TELEFONIK (mohol by byť ako before) */
+      position: relative;
+      top: 8px;
+      height: 40px;
+      padding-right: 10px; }
+  header .overlay-pattern {
+    position: absolute;
+    /* musí byť absolute, alebo relative. */
+    background: transparent;
+    background: url("../media/overlay-zz-w.png") left top repeat;
+    opacity: .5;
+    z-index: 1001;
+    min-width: 100%;
+    min-height: 100%;
+    visibility: hidden; }
+  header video, header .vid {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0.73; }
+
+/*
+---------------------------------
+	SICKY 
+---------------------------------
+*/
+.top-border {
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  z-index: 100000; }
+
+.sticky {
+  display: none;
+  /* je riadeny JS po scrollovani */
+  position: fixed;
+  top: 0;
+  z-index: 100001;
+  height: 60px;
+  width: 100%;
+  background-color: gold;
+  box-shadow: -1px 0px 8px 3px rgba(0, 0, 0, 0.75);
+  border-bottom: solid 4px black; }
+  .sticky .logo-sticky {
+    margin-left: 20px;
+    height: 60px; }
+    .sticky .logo-sticky img {
+      height: 100%;
+      position: absolute; }
+  .sticky .menu-large {
+    visibility: hidden;
+    float: right;
+    margin-top: -70px; }
+    .sticky .menu-large p {
+      display: inline-block;
+      padding: 30px;
+      font-weight: 700;
+      font-family: "Montserrat";
+      text-transform: uppercase; }
+  .sticky .menu-mobile {
+    visibility: hidden; }
+
+/*
+---------------------------------
+		GOOGLE MAP
+---------------------------------
+*/
+#google-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; }
+  @media only screen and (min-width: 768px) {
+    #google-container {
+      height: 300px; } }
+  @media only screen and (min-width: 1170px) {
+    #google-container {
+      height: 600px; } }
+
+#cd-google-map {
+  border: solid 3px gold;
+  position: relative; }
+  #cd-google-map address {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(211, 104, 104, 0.9);
+    color: white;
+    font-size: 13px; }
+    @media only screen and (min-width: 768px) {
+      #cd-google-map address {
+        font-size: 15px;
+        text-align: center; } }
+
+#cd-zoom-in, #cd-zoom-out {
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  margin-left: 10px;
+  background-color: rgba(211, 104, 104, 0.9);
+  background-repeat: no-repeat;
+  background-size: 32px 64px;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-controller.svg");
+  /* !!! background image */ }
+  @media only screen and (min-width: 768px) {
+    #cd-zoom-in, #cd-zoom-out {
+      margin-left: 50px; } }
+
+#cd-zoom-in {
+  background-position: 50% 0;
+  margin-top: 10px;
+  margin-bottom: 1px; }
+  @media only screen and (min-width: 768px) {
+    #cd-zoom-in {
+      margin-top: 50px; } }
+
+#cd-zoom-out {
+  background-position: 50% -32px; }
+
+/*
+---------------------------------
+		FORM 
+---------------------------------
+*/
+button {
+  overflow: visible; }
+
+button, select {
+  text-transform: none; }
+
+button, input, select, textarea {
+  color: grey;
+  font: inherit;
+  margin: 0; }
+
+input {
+  line-height: normal; }
+
+textarea {
+  overflow: auto; }
+
+#form-holder {
+  border: solid 3px grey;
+  background-color: white;
+  max-width: 700px;
+  margin: 60px auto;
+  position: relative; }
+
+form {
+  padding: 37.5px;
+  margin: 50px 0; }
+
+h1 {
+  color: grey;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 7px;
+  text-align: center;
+  text-transform: uppercase; }
+
+.underline {
+  border-bottom: solid 2px grey;
+  margin: -0.512em auto;
+  width: 80px; }
+
+.icon_wrapper {
+  margin: 50px auto 0;
+  width: 100%; }
+
+.icon {
+  display: block;
+  fill: #474544;
+  height: 50px;
+  margin: 0 auto;
+  width: 50px; }
+
+.email {
+  float: right;
+  width: 45%; }
+
+input[type='text'], [type='email'], select, textarea {
+  background: none;
+  border: none;
+  border-bottom: solid 2px grey;
+  color: grey;
+  font-size: 1.000em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 0em 0 1.875em 0;
+  padding: 0 0 0.875em 0;
+  text-transform: uppercase;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
+input[type='text']:focus, [type='email']:focus, textarea:focus {
+  outline: none;
+  padding: 0 0 0.875em 0; }
+
+.message {
+  float: none; }
+
+.name {
+  float: left;
+  width: 45%; }
+
+select {
+  background: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png") no-repeat right;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none; }
+
+select::-ms-expand {
+  display: none; }
+
+.subject {
+  width: 100%; }
+
+.telephone {
+  width: 100%; }
+
+textarea {
+  line-height: 150%;
+  height: 150px;
+  resize: none;
+  width: 100%; }
+
+::-webkit-input-placeholder {
+  color: grey; }
+
+:-moz-placeholder {
+  color: grey;
+  opacity: 1; }
+
+::-moz-placeholder {
+  color: grey;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  color: grey; }
+
+#form_button {
+  background: none;
+  border: solid 2px grey;
+  color: #474544;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.875em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
+#form_button:hover {
+  background: grey; }
+
+/*
+---------------------------------
+		ISOTOPE
+---------------------------------
+*/
+/* ---- isotope ---- */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+/* ---- .grid-item ---- */
+.grid-sizer,
+.grid-item {
+  width: 16.66%; }
+
+.grid-item {
+  float: left;
+  transition: 0.2s ease; }
+  .grid-item img {
+    display: block;
+    width: 98%;
+    height: 98%;
+    border: 3px solid gold; }
+  .grid-item:hover {
+    opacity: .7; }
+
+@media screen and (max-width: 700px) {
+  .grid-item {
+    width: 50%; } }
+/*
+---------------------------------
+		GALLERY
+---------------------------------
+*/
+.gallery {
+  background-color: gold; }
+  .gallery img {
+    height: 200%; }
+
+/*
+---------------------------------
+		SCROLL DOWN
+---------------------------------
+*/
+#scroll {
+  position: relative;
+  z-index: 10000; }
+
+#scroll a {
+  left: 50%;
+  display: inline-block;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  color: black;
+  font: normal 400 20px/1 'Josefin Sans', sans-serif;
+  letter-spacing: .1em;
+  text-decoration: none;
+  transition: opacity .3s; }
+  #scroll a:hover {
+    opacity: .5; }
+  #scroll a span {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    width: 46px;
+    height: 46px;
+    margin-left: -23px;
+    border: 2px solid black;
+    border-radius: 100%;
+    box-sizing: border-box; }
+    #scroll a span::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      content: '';
+      width: 16px;
+      height: 16px;
+      margin: -12px 0 0 -8px;
+      border-left: 2px solid black;
+      border-bottom: 2px solid black;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      box-sizing: border-box; }
+    #scroll a span::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      content: '';
+      width: 44px;
+      height: 44px;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
+      border-radius: 100%;
+      opacity: 0;
+      -webkit-animation: sdb03 3s infinite;
+      animation: sdb03 3s infinite;
+      box-sizing: border-box; }
+
+@keyframes sdb03 {
+  0% {
+    opacity: 0; }
+  30% {
+    opacity: 1; }
+  60% {
+    box-shadow: 0 0 0 60px rgba(255, 198, 0, 0.6);
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+/*
+---------------------------------
+		SECTION 
+---------------------------------
+*/
+section {
+  position: relative; }
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: "Montserrat"; }
+
+.content {
+  box-shadow: -1px 0px 8px 3px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  z-index: 1000; }
+
+.text {
+  padding: 3%;
+  text-align: justify; }
+  .text p {
+    margin: 20px;
+    position: relative; }
+    .text p img {
+      margin-right: 20px;
+      float: left;
+      height: 40px;
+      width: 60px; }
+  .text ul {
+    padding: 20px;
+    margin-top: 30px;
+    border: 3px solid gold;
+    background-color: #eee;
+    text-align: left;
+    display: table;
+    /* aha! */ }
+    .text ul li {
+      list-style-type: none;
+      padding: 0px;
+      display: table-row;
+      /* aha! */ }
+      .text ul li:before {
+        display: table-cell;
+        /* aha! */
+        content: "✓";
+        padding-right: 10px;
+        color: gold; }
+  .text .left {
+    text-align: left; }
+    .text .left p {
+      padding-top: 30px;
+      font-weight: 700; }
+
+/*
+---------------------------------
+	PARASEKCIA
+---------------------------------
+.parasekcia {
+	text-align: center;
+	padding-top: 80px;	
+	margin-top: 0px;
+	min-height: 70%;
+	.subject-text {
+		float: left;
+		text-align: left;
+		width: 350px;
+		font-size: 40px;
+		display: inline-block;	
+		padding-left: 10px;
+		color: $mainColor;
+		text-transform: uppercase;
+		background-color: rgba(black, .8 );
+		margin-left: 10% 
+	}
+	p {		
+		float: left;
+		margin-left: 10%;
+		margin-top: 5px;
+		margin-right: 300px;
+		top: 520px;
+		left: 40px;
+		text-align: left;
+		width: 650px;
+		font-size: 25px;
+		display: inline-block;	
+		padding: 10px;
+		color: white;
+		text-transform: uppercase;
+		background-color: rgba(black, .5);			
+	}	
+}
+*/
+.parasekcia {
+  padding-top: 60px;
+  margin-top: 0px; }
+  .parasekcia .center {
+    text-align: center;
+    margin-bottom: 10px; }
+  .parasekcia .subject-text {
+    text-align: left;
+    display: inline-block;
+    margin-left: 10%; }
+    .parasekcia .subject-text span {
+      display: block;
+      width: 80%;
+      font-size: 35px;
+      padding: 0px 10px 0 10px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: gold;
+      text-transform: uppercase; }
+      @media only screen and (min-width: 768px) {
+        .parasekcia .subject-text span {
+          width: 450px; } }
+    .parasekcia .subject-text p {
+      margin-top: 5px;
+      width: 80%;
+      font-size: 23px;
+      padding: 10px;
+      color: white;
+      text-transform: uppercase;
+      background-color: rgba(0, 0, 0, 0.5); }
+      @media only screen and (min-width: 768px) {
+        .parasekcia .subject-text p {
+          width: 650px; } }
+
+/*
+---------------------------------
+		PARASEKCIA A: Rozumieme stavebníctvu
+---------------------------------
+*/
+#parallax-A {
+  background: url("../media/02.jpg");
+  min-height: 70%;
+  padding-bottom: 20px; }
+
+.subject-box {
+  border: solid gold 2px;
+  display: inline-block;
+  border: gold solid 3px;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0.9;
+  transition: all 0.3s;
+  /* responzivny */
+  margin: 10px;
+  padding: 10px;
+  height: 80px;
+  width: 100px; }
+  .subject-box img {
+    height: 100%;
+    width: 100%; }
+  .subject-box:hover {
+    opacity: 0.7; }
+  @media only screen and (min-width: 1170px) {
+    .subject-box {
+      height: 180px;
+      width: 220px;
+      margin: 20px;
+      padding: 20px; } }
+
+/*
+---------------------------------
+		PARASEKCIA B: PARTNERI
+---------------------------------
+*/
+#parallax-B {
+  background: url("../media/01.jpg");
+  min-height: 70%; }
+
+.partneri-loga {
+  text-align: center;
+  padding-top: 30px;
+  margin: auto;
+  vertical-align: middle; }
+  .partneri-loga img {
+    max-height: 35px; }
+  .partneri-loga span img {
+    max-height: 90px; }
+
+/*
+---------------------------------
+		PARASEKCIA C - PROJEKTY
+---------------------------------
+*/
+#parallax-C {
+  background-color: gold;
+  max-height: 500px;
+  padding-bottom: 30px; }
+  #parallax-C .subject-text span {
+    opacity: 1;
+    background-color: black; }
+
+/*
+---------------------------------
+	CONTACT
+---------------------------------
+*/
+/*
+---------------------------------
+		FOOTER
+---------------------------------
+*/
+footer {
+  border-top: solid 0px black;
+  border-bottom: solid 20px black;
+  min-height: 60px;
+  background-color: gold;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  text-align: right;
+  padding-right: 10%; }
+  footer .logo-holder span {
+    margin-right: 55px;
+    left: 0px;
+    display: block;
+    font-size: 12px;
+    font-family: "Montserrat";
+    font-weight: 700; }
+  footer .logo-holder img {
+    height: 80%;
+    margin-top: -5px; }
+
+.menu {
+  position: relative;
+  margin-top: 10px;
+  padding-right: 20px;
+  background-color: transparent;
+  float: right; }
+  .menu ul {
+    margin: 0px;
+    padding: 0px; }
+
+.menu__list {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  float: right;
+  padding-right: 20px;
+  display: block;
+  transition: all 2s ease;
+  background-color: gold;
+  text-align: right;
+  border: black solid 3px; }
+
+.menu__list--unvisible {
+  display: none; }
+
+.menu__item {
+  display: inline-block;
+  background-color: gold;
+  padding: 5px; }
+  .menu__item a {
+    font-weight: 700;
+    font-family: "Montserrat";
+    text-transform: uppercase; }
+
+.menu__link {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 10px; }
+
+.menu__item:hover {
+  background-color: black;
+  color: gold; }
+  .menu__item:hover a {
+    background-color: black;
+    color: gold; }
+
+.menu__btn {
+  position: relative;
+  float: right;
+  display: none;
+  width: 30px;
+  height: 20px;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  cursor: pointer;
+  margin: 3px; }
+
+.menu__btn:active {
+  border-color: aqua; }
+
+.menu__btn:active::before {
+  background-color: aqua; }
+
+.menu__btn::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: black;
+  top: 7px; }
+
+@media screen and (max-width: 640px) {
+  .menu__item {
+    display: block; }
+
+  .menu__btn {
+    display: block; } }
+@media screen and (min-width: 641px) {
+  .menu {
+    margin-top: -18px; }
+
+  .menu__list {
+    display: block;
+    border: 0px; } }
+a:link {
+  color: black;
+  font-weight: bold;
+  text-decoration: none; }
+
+a:hover {
+  color: gold;
+  font-weight: bold;
+  text-decoration: none; }
+
+input[type='text'], [type='email'], select, textarea {
+  text-transform: none;
+  color: black; }
+
+#pone {
+  padding-bottom: 15px; }
+
+.icon {
+  padding-bottom: 15px; }
+
+option {
+  color: gray; }
+
+option:first-child {
+  color: grey; }
+
+#frmContact {
+  border: grey 2px solid;
+  padding: 10px;
+  background-color: #eee; }
+
+#frmContact div {
+  margin-bottom: 15px; }
+
+#frmContact div label {
+  margin-left: 5px;
+  color: grey; }
+
+.demoInputBox {
+  padding: 10px;
+  border-radius: 2px;
+  border: #ccc 1px solid; }
+
+.error {
+  background-color: #FF6600;
+  border: #AA4502 1px solid;
+  padding: 5px 10px;
+  color: #FFFFFF;
+  border-radius: 4px; }
+
+.success {
+  background-color: #12CC1A;
+  border: #0FA015 1px solid;
+  padding: 5px 10px;
+  color: #FFFFFF;
+  border-radius: 4px; }
+
+.info {
+  font-size: .8em;
+  color: #FF6600;
+  letter-spacing: 2px;
+  padding-left: 5px; }
+
+.btnAction {
+  background-color: #2FC332;
+  border: 0;
+  padding: 10px 40px;
+  color: #FFF;
+  border: #F0F0F0 1px solid;
+  border-radius: 4px; }

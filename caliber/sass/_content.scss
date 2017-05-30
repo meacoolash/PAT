@@ -1,0 +1,281 @@
+
+/*
+---------------------------------
+		SECTION 
+---------------------------------
+*/
+section {
+	position: relative;
+}
+h2 {
+	font-size: 30px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	font-family: "Montserrat"; 
+}
+.content{
+	box-shadow: -1px 0px 8px 3px rgba(0,0,0,0.75);
+	background-color: white;
+	z-index: 1000;
+
+}
+.text{
+	padding: 3%;
+	
+	text-align: justify;
+	p {	
+  		margin: 20px;
+		position: relative;
+		img{	
+			margin-right: 20px;
+			float: left;
+			height: 40px;
+			width: 60px;
+		}
+	}
+	ul {
+		padding: 20px;
+		margin-top: 30px;
+		border: 3px solid $mainColor;		
+		background-color: #eee;
+		text-align: left;
+		display: table;   /* aha! */
+		li {
+			list-style-type: none;
+			padding: 0px;
+			display: table-row;  /* aha! */
+			&:before {
+			display: table-cell; /* aha! */
+			content: "✓";
+  			padding-right: 10px;
+  			color: $mainColor;		
+			}
+		}
+
+	}
+	.left {
+		text-align: left;
+		p {
+			padding-top: 30px;
+			font-weight: 700;
+		}
+	}
+}
+
+/*
+---------------------------------
+	PARASEKCIA
+---------------------------------
+.parasekcia {
+	text-align: center;
+	padding-top: 80px;	
+	margin-top: 0px;
+	min-height: 70%;
+	.subject-text {
+		float: left;
+		text-align: left;
+		width: 350px;
+		font-size: 40px;
+		display: inline-block;	
+		padding-left: 10px;
+		color: $mainColor;
+		text-transform: uppercase;
+		background-color: rgba(black, .8 );
+		margin-left: 10% 
+	}
+	p {		
+		float: left;
+		margin-left: 10%;
+		margin-top: 5px;
+		margin-right: 300px;
+		top: 520px;
+		left: 40px;
+		text-align: left;
+		width: 650px;
+		font-size: 25px;
+		display: inline-block;	
+		padding: 10px;
+		color: white;
+		text-transform: uppercase;
+		background-color: rgba(black, .5);			
+	}	
+}
+*/
+
+
+.parasekcia {	
+	padding-top: 60px;	
+	margin-top: 0px;
+	.center {
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	.subject-text {
+		text-align: left;
+		display: inline-block;	
+		margin-left: 10%;	
+		span{
+			display: block;	
+			width: 80%;
+			font-size: 35px;	
+			@include MQ(M) {
+			width: 450px;
+			}
+			padding: 0px 10px 0 10px;
+			
+			background-color: rgba(black, .8 );
+			color: $mainColor;
+			text-transform: uppercase;
+		}
+		p {		
+			margin-top: 5px;
+			width: 80%;
+			font-size: 23px;
+			@include MQ(M) {
+			width: 650px;
+			}
+			padding: 10px;
+			color: white;
+			text-transform: uppercase;
+			background-color: rgba(black, .5);			
+		}
+	}	
+}
+
+
+
+/*
+---------------------------------
+		PARASEKCIA A: Rozumieme stavebníctvu
+---------------------------------
+*/
+#parallax-A {
+	background: url("../media/02.jpg");
+	min-height: 70%;
+	padding-bottom: 20px;
+}
+.subject-box{
+	border: solid $mainColor 2px;
+	display: inline-block;
+	border: $mainColor solid 3px;
+	background-color: rgba(black, .6);
+	opacity: 0.9;
+	transition: all 0.3s;
+	img{
+		height: 100%; 		
+		width: 100%;
+	}
+	&:hover{
+		opacity: 0.7;	
+	}		
+	/* responzivny */
+	margin: 10px;
+	padding: 10px;
+	height: 80px;
+	width: 100px; 
+	@include MQ(L) {
+    height: 180px;
+	width: 220px;
+	margin: 20px;
+	padding: 20px; 
+  	}
+}	
+
+/*
+---------------------------------
+		PARASEKCIA B: PARTNERI
+---------------------------------
+*/
+#parallax-B {
+	background: url("../media/01.jpg");
+	min-height: 70%;
+}
+
+.partneri-loga{
+	text-align: center;
+	padding-top: 30px;
+	margin: auto;
+	vertical-align: middle;
+	img{
+		max-height: 35px;
+
+	}
+	span{
+		img{
+		max-height: 90px;
+		}
+	}
+
+}
+
+
+/*
+---------------------------------
+		PARASEKCIA C - PROJEKTY
+---------------------------------
+*/
+#parallax-C {	
+	.subject-text span {
+		opacity: 1;
+		
+		background-color: black;
+	}
+	background-color: $mainColor;
+	max-height: 500px;
+	padding-bottom: 30px;
+}
+
+
+/*
+---------------------------------
+	CONTACT
+---------------------------------
+*/
+.contact {
+
+	
+}
+
+
+
+
+/*
+---------------------------------
+		FOOTER
+---------------------------------
+*/
+footer {
+	border-top: solid 0px black;
+	border-bottom: solid 20px black;
+	min-height: 60px;
+	background-color: $footerColor; 
+	padding-top: 30px;
+	padding-bottom: 10px;
+	text-align: right;
+	padding-right: 10%;
+
+	.logo-holder{
+		span {
+		margin-right: 55px;
+		left: 0px;
+		display: block;
+		font-size: 12px;
+		font-family: "Montserrat";
+		font-weight: 700;
+		}
+		img {
+			height: 80%;
+			margin-top: -5px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+

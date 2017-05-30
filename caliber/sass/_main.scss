@@ -1,0 +1,77 @@
+/*
+---------------------------------
+		HTML & BODY 
+---------------------------------
+*/
+* { 
+	margin: 0px;
+	font-family: $mainFont, Arial, sans-serif;
+	
+}
+body, html {
+	background-color: $backgroundColor;
+}
+body, html {
+    height: 100%;
+}
+
+
+
+
+/*
+---------------------------------
+    RESPONSIVE LAYOUT
+---------------------------------
+*/
+$S:     480px;   
+$M:     768px;     
+$L:     1170px;         
+// layout - media queries
+@mixin MQ($screenSize) {
+  @if $screenSize == S {
+   @media screen and (min-width: $S) { @content; } 
+  }
+  @else if $screenSize == M {
+   @media screen and (min-width: $M) { @content; } 
+  }
+  @else if $screenSize == L {
+   @media screen and (min-width: $L) { @content; } 
+  }
+}
+
+/*
+.test {
+  @include MQ(S) {
+    background-color: red;
+  }
+  @include MQ(M) {
+    background-color: green;    
+  }
+  @include MQ(L) {
+    background-color: yellow;   
+  }
+}
+*/
+
+
+/*
+---------------------------------
+		FLEX GRID v1.0
+---------------------------------
+*/
+.flex-row {
+  display: flex; 
+
+}
+.col {flex:1}
+.col3 {flex:3}
+.col7 {flex:7}
+/* !!! */
+@media (max-width: 700px) { 
+  .flex-row {
+    display: block;
+    .col{
+      flex: 1  /* ??? toto treba? */
+    }
+  }
+}

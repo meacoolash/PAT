@@ -1,0 +1,54 @@
+
+/*
+---------------------------------
+		ISOTOPE
+---------------------------------
+*/
+/* ---- isotope ---- */
+.grid {
+  &:after {
+  content: '';
+  display: block;
+  clear: both;	
+  }
+}
+/* ---- .grid-item ---- */
+.grid-sizer,
+.grid-item {
+ width: 16.66%; 
+}
+.grid-item {
+  	float: left;
+  	transition: 0.2s ease;
+	img {
+	  display: block;
+	  width: 98%;
+	  height: 98%;
+	  border: 3px solid $mainColor;	  
+
+	}
+	&:hover{
+		opacity: .7;
+	}
+}
+@media screen and (max-width:700px) {
+	.grid-item {
+	  width: 50%;
+	}
+}
+
+
+
+
+
+ /*
+ ---------------------------------
+ 		GALLERY
+ ---------------------------------
+ */
+.gallery {
+	background-color: $mainColor;
+	img {
+		height: 200%;
+	}
+}
