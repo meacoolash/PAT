@@ -1,0 +1,41 @@
+
+/*  IKONKY ............................................. */
+.kontakt a[href^="mailto:"]:before { 
+  content: "\f0e0";
+  font-family:'FontAwesome',Arial,Tahoma,Verdana,Helvetica,sans-serif;
+  
+  margin-right: 18px;           
+  text-decoration: none;
+} 
+.kontakt a.mobil[href^="tel:"]:before {  
+  content: "\f10b";
+  font-family:'FontAwesome',Arial,Tahoma,Verdana,Helvetica,sans-serif;
+  
+  margin-right: 18px;     
+  font-size:120%;        
+  text-decoration: none;
+}
+.kontakt a.fax[href^="tel:"]:before {  
+  content: "\f02f";
+  font-family:'FontAwesome',Arial,Tahoma,Verdana,Helvetica,sans-serif;
+  
+  margin-right: 18px;   
+  text-decoration: none;         
+}
+.kontakt a[href^="tel:"]:before {  
+  content: "\f095";
+  font-family:'FontAwesome',Arial,Tahoma,Verdana,Helvetica,sans-serif;
+  
+  margin-right: 18px;   
+  text-decoration: none;        
+}
+.kontakt a[href^="http://"]:before {  
+  content: "\f0c1";
+  font-family:'FontAwesome',Arial,Tahoma,Verdana,Helvetica,sans-serif;
+  
+  margin-right: 8px;    
+  text-decoration: none;         
+} 
+
+
+

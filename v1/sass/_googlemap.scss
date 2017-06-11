@@ -43,8 +43,8 @@
 		position: absolute;
 		width: 100%;
 		bottom: 0;
-		background-color: rgba($Col2, .9);
-		color: $Col3;
+		background-color: $mainColor;
+		color: white;
 		font-size: 13px;
 		@include MQ(M) {
 			font-size:15px;
@@ -58,7 +58,7 @@
 	width: 32px;
 	cursor: pointer;
 	margin-left: 10px;
-	background-color: rgba($Col2, .9);
+	background-color: $mainColor;
 	background-repeat: no-repeat;
 	background-size: 32px 64px;
 	background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-controller.svg');

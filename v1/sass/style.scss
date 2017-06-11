@@ -5,6 +5,8 @@ $Bg1: #FFF;
 $Bg2: #eff0f9; //grey
 
 
+$formColor: $mainColor;
+
 /*
 ---------------------------------
     RESPONSIVE LAYOUT
@@ -25,7 +27,6 @@ $L:     1170px;
    @media screen and (min-width: $L) { @content; } 
   }
 }
-
 
 
 
@@ -53,6 +54,16 @@ $L:     1170px;
     }
   }
 }
+
+
+
+
+@import 'googlemap';
+@import 'form';
+@import 'icons';
+
+
+
 
 
 /*
@@ -174,6 +185,10 @@ h2{
 }
 
 
+.fakturacne {
+	font-size: 80%;
+}
+
 
 /*
 ---------------------------------
@@ -198,6 +213,29 @@ h2{
 	height: 30%;
 	padding-bottom: 20px;
 }
+
+/*
+---------------------------------
+		KONTAKT
+---------------------------------
+*/
+
+.kontakt {
+  text-align: left;
+  padding: 5%;
+  color: $mainColor;
+}
+
+.kontakt a{
+	text-decoration: none;
+}
+
+.kontakt a:hover{
+  
+}
+
+
+
 
 
 
