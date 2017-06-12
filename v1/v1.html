@@ -28,12 +28,6 @@
 <div class="logo"></div>
 </header>
 
-
-
-<section class="jarallax" id="parallax-A"> 
-</section>
-
-
 <section class="text">
 <div class="flex-row center"> 
 <div class="col">
@@ -52,10 +46,13 @@
 </section>
 
 
-<section class="jarallax" id="parallax-B"> 
+
+
+<section class="jarallax" id="parallax-A"> 
 </section>
 
 
+	
 <section class="text">
 
 <div class="flex-row"> 
@@ -142,15 +139,214 @@ Cieľom je zabezpečiť kvalitné prevedenie stavebných prác pre investora pri
 <div id='line'></div>
 
 
+
+
+
+
 <section class="jarallax" id="parallax-C"> 
 </section>
+
+<!--
+---------------------------------
+KONTAKT START 
+---------------------------------
+-->
+
+
+<div id="4"></div>
+<!--
+---------------------------------
+	CONTACT 	 
+---------------------------------
+-->
+<section class="content text kontakt">
+<br><br><!-- !!! br -->
+	<div class="flex-row">
+	  <div class="col">
+			<h2>Kontakt</h2>
+
+<br>Ing. Pavol Oravec
+<br>Narcisova 6,
+<br>040 11 Košice
+<br>
+
+<br>Pondelok až Piatok: 8,00 – 17,00
+<br>
+
+<br><a href="tel:+421 907 479 326">+421 907 479 326</a>
+<br><a href="tel:+421 55 30 84208">+421 55 30 84208</a>
+<br>
+<br><a href="mailto:patrium@patrium.sk">patrium@patrium.sk</a>
+<br><a href="mailto:patrium.sro@gmail.com">patrium.sro@gmail.com</a>
+
+<div class="fakturacne">
+<br>Fakturačné údaje:
+<br>PATRIUM s.r.o.
+<br>Petzvalova 20/33,
+<br>040 11 Košice
+<br>IČO: 47 390 514
+<br>DIČ: 2023843162
+<br>Bankové spojenie: Slovenská sporiteľna a.s.
+<br>IBAN : SK8709000000005048918083
+<br>zápis v Obchodnom registri Okresného súdu Košice I., oddiel Sro, <br>vložka 33183/V
+</div>
+
+	</div>
+	
+	<div class="col">
+
+
+
+
+<div id="frmContact">
+<div id="frm_fields">
+
+<div>
+<label style="padding-top:20px;">Meno</label>
+<span id="userName-info" class="info"></span><br/>
+<input type="text" name="userName" id="userName" class="demoInputBox">
+</div>
+<div>
+<label>Email</label>
+<span id="userEmail-info" class="info"></span><br/>
+<input type="text" name="userEmail" id="userEmail" class="demoInputBox">
+</div>
+
+<select placeholder="Subject line" name="subject" id="subject" required>
+        <option disabled hidden selected>Vyberte možnosť</option>
+        <option>Zateplenie bytového domu</option>
+        <option>Rekonštrukcia</option>
+        <option>Výstavba</option>
+        <option>Iné</option>
+</select>
+
+<div>
+<label>Správa</label> 
+<span id="content-info" class="info"></span><br/>
+<textarea name="content" id="content" class="demoInputBox" cols="60" rows="6"></textarea>
+</div>
+
+</div>
+
+<div>
+<button name="submit" id="btnOdoslat" class="btnAction" onClick="sendContact();">Odoslať</button>
+</div>
+<div id="mail-status"></div>
+<br>
+</div>
+
+
+
+
+<script>
+function sendContact() {
+    $(document).ready(function(){
+        
+    
+	var valid;	
+	valid = validateContact();
+	if(valid) {
+		jQuery.ajax({
+		url: "contact_mail.php",
+		data:'userName='+$("#userName").val()+'&userEmail='+$("#userEmail").val()+'&subject='+$("#subject").val()+'&content='+$('#content').val(),
+		type: "POST",
+
+
+		success:function(data){
+		$("#mail-status").html(data);
+		$("#btnOdoslat").hide();
+		$("#frm_fields").hide();		
+
+		$("#userName").val("");  
+		$("#userEmail").val("");  	
+		$("#subject").val("");  
+		$("#content").val("");  
+ 		//window.location.href = "#sent";
+        var mapPositon = $("#cd-google-map").offset().top;
+        window.scroll(0, mapPositon-350);
+        
+		},
+		error:function (){}
+		});
+	}
+    });
+}
+
+function validateContact() {
+	var valid = true;	
+	$(".demoInputBox").css('background-color','');
+	$(".info").html('');
+	
+	if(!$("#userName").val()) {
+		$("#userName-info").html("(povinné)");
+		$("#userName").css('background-color','#FFFFDF');
+		valid = false;
+	}
+	if(!$("#userEmail").val()) {
+		$("#userEmail-info").html("(povinné)");
+		$("#userEmail").css('background-color','#FFFFDF');
+		valid = false;
+	}
+	if(!$("#userEmail").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+		$("#userEmail-info").html("(neplatné)");
+		$("#userEmail").css('background-color','#FFFFDF');
+		valid = false;
+	}
+	if(!$("#subject").val()) {
+		$("#subject-info").html("(povinné)");
+		$("#subject").css('background-color','#FFFFDF');
+		valid = false;
+	}
+	if(!$("#content").val()) {
+		$("#content-info").html("(povinné)");
+		$("#content").css('background-color','#FFFFDF');
+		valid = false;
+	}
+	
+	return valid;
+}
+</script>
+
+
+
+<script type="text/javascript">
+	function changeMe(sel) {
+		sel.style.color = "gray";              
+	} // credits goes to this http://stackoverflow.com/questions/13694271/modify-select-so-only-the-first-one-is-gray
+</script>
+		
+		</div><!-- COL -->
+	
+</section>
+
+
+
+<!--
+---------------------------------
+	GOOGLE MAPA
+---------------------------------
+-->
+<section class="content">
+<div id="cd-google-map">
+				<div id="google-container"></div>
+				<div id="cd-zoom-in"></div>
+				<div id="cd-zoom-out"></div>
+				<address>Patrium s.r.o.,  Narcisová 6, Košice</address> 
+</div>
+</section>
+
+
+<!--
+---------------------------------
+KONTAKT END 
+---------------------------------
+-->
 
 
 
 
 
 <script type="text/javascript" src="components/jarallax.js"></script>
-
 
 
 </body>
