@@ -94,13 +94,17 @@ nav{
 	height: 0px;
 }
 
-header {
-	
+header {  
 	.logo{
 		content:url("../media/logo.png"); 
 		height: 200px;
-	}
+		@media (max-width: 500px) { 
+  			height: 100px;
+    	}
+ 	 }
 }
+
+
 
 #line {
 	background: url("../media/line.png");
@@ -111,7 +115,15 @@ header {
 
 }
 
+a:link,  
+a:visited,
+a:active {
+	color: $mainColor;
+}
 
+a:hover {
+	color: $Col2;
+}
 
 
 
@@ -123,6 +135,9 @@ header {
 
 .text{
 	padding: 3%;
+	 @media (max-width: 500px) { 
+        padding: 0%;
+      }
 	.center {
 		text-align: justify;
 	}
@@ -162,6 +177,7 @@ h2{
 	margin: 0px;
 	color: $Col2;
 	text-shadow: 2px 2px 2px $mainColor;
+	//text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	margin-top: 40px;	
 
 	&#i1:before{
@@ -184,11 +200,25 @@ h2{
 	}
 }
 
+.bigger {
+	font-size:120%;
+	margin: 20px 0px 20px 0px;
+	 @media (max-width: 500px) { 
+	 	font-size:100%;
+        margin: 0px;
+      }
+}
 
 .fakturacne {
 	font-size: 80%;
 }
 
+
+.shadow {
+	height: 5px;
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	z-index: 999999;
+}
 
 /*
 ---------------------------------

@@ -182,7 +182,15 @@ textarea {
 }
 
 
-
+#frmContact {
+  margin: 20px;
+  padding: 20px;
+  border: solid 1px $formColor;
+  background-color: white;
+  @media (max-width: 500px) { 
+        margin: 5px;
+      }
+}
 
 
 
