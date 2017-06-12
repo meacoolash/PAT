@@ -9,6 +9,73 @@ $(document).ready(function() {
 
 /*
 ---------------------------------
+		smooth scroll
+---------------------------------
+*/
+$(document).ready(function(){
+	$('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
+
+	    var target = this.hash,
+	    $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 900, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	});
+});
+
+
+
+/*
+---------------------------------
+		HAMBURGER MENU
+---------------------------------
+*/
+$(document).ready(function() {
+var burger = document.querySelector(".menu__btn");
+var menu = document.querySelector(".menu__list");
+
+burger.addEventListener("click", function(event){
+  menu.classList.toggle("menu__list--unvisible");
+});
+
+$(".menu__list").click(function() {
+	menu.classList.toggle("menu__list--unvisible");
+});
+
+
+});
+
+
+
+/*
+---------------------------------
+		STICKY NAVIGATION:
+---------------------------------
+*/
+$(document).ready(function() {
+	var nav = $("nav");
+	    sticky = $(".sticky");
+	    where = $("nav").position().top;	    
+	 
+	$(window).scroll(function() {
+	  if( $(this).scrollTop() > where ) {
+	    sticky.slideDown('fast');
+	  } else {
+	  	sticky.slideUp('fast');
+	  }
+	});
+});
+
+
+
+
+
+/*
+---------------------------------
 		GOOGLE MAP
 ---------------------------------
 */

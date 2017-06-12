@@ -265,6 +265,185 @@ h2{
 }
 
 
+/*
+------------------------------------------------------------------
+		MENU
+------------------------------------------------------------------		
+*/
+
+
+/*
+---------------------------------
+	SICKY 
+---------------------------------
+*/
+.top-border{
+		height: 3px;
+		width: 100%;
+		background-color: black;
+		position: fixed;
+		z-index: 100000;
+}
+.sticky {
+	display:none; /* je riadeny JS po scrollovani */
+	position: fixed;
+	top: 0;
+	z-index: 100001;
+	height: 60px;
+	width: 100%;
+	background-color: $mainColor;
+	box-shadow: -1px 0px 8px 3px rgba(0,0,0,0.75);
+	border-bottom: solid 4px black;
+	.logo-sticky {
+		margin-left: 20px;
+		height: 60px;
+		img {
+			height: 100%;
+			position: absolute;
+		}
+	}
+
+	.menu-large {
+		visibility: hidden;
+		@include MQ(M) {
+			
+		}
+		float: right;
+		margin-top: -70px;
+		p {
+		display: inline-block;
+		padding: 30px;
+		font-weight: 700;
+		font-family: "Montserrat";
+		text-transform: uppercase;
+		}
+	}	
+	.menu-mobile {
+		visibility: hidden;
+	}
+}
+
+
+
+.menu {
+position: fixed;
+	right: 30px;
+  margin-top:10px;
+  padding-right: 20px;
+  background-color: transparent;
+  float: right; 
+  z-index: 100000000;
+  ul {margin: 0px; padding: 0px;}
+
+  
+}
+
+.menu__list {
+  padding: 0;
+  margin: 0;
+  float: right;
+  padding-right: 20px;
+  text-align: right;
+  border: black solid 3px;
+  transition: all 2s ease;
+  background-color: transparent;
+  list-style: none;
+}
+
+.menu__list--unvisible {
+  display: none;
+}
+
+.menu__item {
+  display: inline-block;
+  background-color: $mainColor; 
+  padding: 5px;
+  a {
+  	font-weight: 700;
+  font-family: "Montserrat";
+  text-transform: uppercase;
+  color: $Bg2;
+  }
+
+}
+
+.menu__link {
+  text-decoration: none;
+  color: $Bg2;
+  display: block;
+  padding: 10px;
+}
+
+.menu__item:hover {
+  	background-color: black;
+  	color: $mainColor; 
+  
+  a {
+  	background-color: $Col2;
+  	color: $Bg2; 
+  }
+}
+
+.menu_border{
+	padding: 2px; 
+	
+	background-color: white;
+}
+
+.menu__btn {
+  position: relative;
+  float: right;
+  display: none;
+  width: 30px;
+  height: 20px;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  cursor: pointer;
+  margin: 3px;
+
+
+}
+
+.menu__btn:active {
+  border-color: aqua;
+}
+
+.menu__btn:active::before {
+  background-color: aqua;
+}
+
+.menu__btn::before {
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: black;
+  top: 7px;
+  position: absolute;
+  content: "";
+}
+
+
+
+@media screen and (max-width: 640px) {
+  .menu__item {
+    display: block;
+  }
+  
+  .menu__btn {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 641px)  {
+  .menu {
+  	margin-top:-18px;
+  }
+  .menu__list {
+    display: block;
+    border: 0px;
+  }
+}
+
 
 
 
