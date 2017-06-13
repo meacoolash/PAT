@@ -40,10 +40,12 @@ var menu = document.querySelector(".menu__list");
 
 burger.addEventListener("click", function(event){
   menu.classList.toggle("menu__list--unvisible");
+  $(".menu__btn").css('display','none');
 });
 
 $(".menu__list").click(function() {
 	menu.classList.toggle("menu__list--unvisible");
+	 $(".menu__btn").css('display','block');
 });
 
 

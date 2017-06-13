@@ -36,8 +36,10 @@
     }
 }
 
+
 #cd-google-map {
-	border: solid 3px $mainColor;
+	border-top: solid 3px  $mainColor;
+		border-bottom: solid 5px  $mainColor;
   	position: relative;
 	address {
 		position: absolute;
