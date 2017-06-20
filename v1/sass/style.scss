@@ -94,17 +94,20 @@ nav{
 	height: 0px;
 }
 
-header {  
-	.logo{
-		content:url("../media/logo.png"); 
-		height: 200px;
-		@media (max-width: 500px) { 
-  			height: 100px;
-    	}
- 	 }
+header {
+	.img-container{
+		margin: auto;
+		max-width: 800px;
+		img{
+			max-width: 80%;
+    		height: auto;
+		}	
+ 	}
 }
 
-
+section {
+	//position: static;
+}
 
 #line {
 	background: url("../media/line.png");
